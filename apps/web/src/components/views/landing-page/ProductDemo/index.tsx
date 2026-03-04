@@ -1,0 +1,147 @@
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { MultiStepLoader } from "@/components/ui/multi-step-loader";
+import DemoInput from "./DemoInput";
+import TweetCarousel from "./TweetCarousel";
+
+type GeneratedTweet = { id: number; content: string; chars: number };
+
+const DEMO_TEXT =
+  "Lately, building feels less like problem-solving and more like learning to stay calm inside controlled turbulence. The deeper I go, the more I realize that the real craft isn't in writing perfect code — it's in keeping composure when everything starts breaking at once. Rewrites, edge cases, messy logic, and long nights used to frustrate me. Now they've become part of the rhythm — the quiet reminders that stability doesn't come from fewer problems, it comes from better reactions. I'm still shaping Snippetly, still refactoring things that felt \"final\" just last week. But that's where the growth hides — in the version you didn't plan to rebuild but had the courage to. Shipping matters. Learning to stay grounded when everything bends matters more.#buildinpublic #frontenddev #Nextjs #learninginpublic #growth";
+
+const ProductDemo = () => {
+  const [inputText, setInputText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [tweets, setTweets] = useState<GeneratedTweet[]>([
+    { id: 0, content: "Ever stared at a blank screen, wondering where to even begin? That's the developer's journey. It's not about perfection from the start, but about taking that first small step. What's your go-to trick for breaking through initial development paralysis?", chars: 251 },
+    { id: 1, content: "The best code isn't always the most complex; it's the most readable and maintainable. Think about your future self (or your teammates!) when you're writing. Simple elegance often trumps intricate genius in the long run. What's your golden rule for clean code?", chars: 259 },
+    { id: 2, content: "Remember that 'aha!' moment when a complex concept finally clicks? That's the fuel that keeps us going as developers. Share your most recent 'aha!' experience. Big or small, those breakthroughs are what make the grind worthwhile.", chars: 229 },
+    { id: 3, content: "Debugging: the art of being a detective in your own code. Sometimes it feels like you're searching for a needle in a haystack, only to find the haystack was actually a single misplaced semicolon. What's the most bizarre bug you've ever tracked down?", chars: 249 },
+    { id: 4, content: "Coding isn't just about syntax; it's about problem-solving, logical thinking, and continuous learning. Every line written is a mini-challenge overcome. What's one skill you've gained from coding that surprised you in its applicability outside of dev work?", chars: 255 },
+  ]);
+  const [error, setError] = useState<string | null>(null);
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const handleUseDemo = () => {
+    setInputText(DEMO_TEXT);
+    setTweets([]);
+    setError(null);
+    setCopiedIndex(null);
+  };
+
+  const handleGenerate = async () => {
+    if (!inputText.trim()) return;
+    setIsLoading(true);
+    setTweets([]);
+    setError(null);
+
+    try {
+      // API call would go here
+    } catch (e: any) {
+      setError(e?.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleLoaderComplete = () => {
+    setTimeout(() => {
+      const tweetsSection = document.getElementById("tweets-section");
+      if (tweetsSection) {
+        tweetsSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        tweetsSection.classList.add("highlight-pulse");
+
+        const tweetCards = tweetsSection.querySelectorAll(".tweetCard");
+        tweetCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add("tweet-highlight");
+            setTimeout(() => card.classList.remove("tweet-highlight"), 1000);
+          }, index * 200);
+        });
+
+        setTimeout(() => tweetsSection.classList.remove("highlight-pulse"), 3000);
+      }
+    }, 500);
+  };
+
+  const handleCopy = async (content: string, index: number) => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopiedIndex(index);
+      setTimeout(() => setCopiedIndex(null), 2000);
+    } catch { }
+  };
+
+  return (
+    <section className="relative overflow-hidden py-16 px-8 bg-cover bg-center backdrop-blur-[10px] backdrop-brightness-[0.7] max-lg:py-12 max-lg:px-6 max-md:py-8 max-md:px-4 max-sm:py-6 max-sm:px-3" style={{ backgroundImage: "url('/banners/bg-gradient-1.jpg')" }}>
+      {/* 3D cube background layers */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-[1]" style={{ background: "radial-gradient(circle 150px at 15% 25%, rgba(16,185,129,0.03) 0%, transparent 50%), radial-gradient(circle 200px at 85% 75%, rgba(52,211,153,0.02) 0%, transparent 50%)", animation: "layerFloat1 15s ease-in-out infinite" }} />
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-[1]" style={{ background: "radial-gradient(circle 100px at 70% 30%, rgba(34,197,94,0.04) 0%, transparent 50%), radial-gradient(circle 180px at 30% 80%, rgba(5,150,105,0.03) 0%, transparent 50%)", animation: "layerFloat2 18s ease-in-out infinite reverse" }} />
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-[1]" style={{ background: "radial-gradient(circle 120px at 60% 60%, rgba(16,255,168,0.025) 0%, transparent 50%), radial-gradient(circle 160px at 40% 40%, rgba(52,211,153,0.02) 0%, transparent 50%)", animation: "layerFloat3 22s ease-in-out infinite" }} />
+
+      <div className="max-w-[90rem] mx-auto relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-24 relative max-lg:mb-16 max-md:mb-12"
+        >
+          <motion.h2
+            className="text-[clamp(3rem,3vw,4.5rem)] font-extrabold bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] mb-6 tracking-[-0.04em] leading-[1.2] relative"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Experience the Change
+          </motion.h2>
+          <motion.p
+            className="text-[clamp(1.125rem,1vw,1.5rem)] font-normal leading-[1.6] max-w-[600px] mx-auto mt-8"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            From transcript to tweets in seconds powered by AI
+          </motion.p>
+        </motion.div>
+
+        {/* Single column layout */}
+        <div className="flex flex-col items-center gap-8">
+          <DemoInput
+            inputText={inputText}
+            setInputText={setInputText}
+            isLoading={isLoading}
+            error={error}
+            onGenerate={handleGenerate}
+            onUseDemo={handleUseDemo}
+          />
+
+          <MultiStepLoader
+            loadingStates={[
+              { text: "Analyzing your content..." },
+              { text: "Extracting key insights..." },
+              { text: "Generating tweet variations..." },
+              { text: "Optimizing for engagement..." },
+              { text: "Finalizing your tweets..." },
+            ]}
+            loading={isLoading}
+            onComplete={handleLoaderComplete}
+          />
+
+          <TweetCarousel
+            tweets={tweets}
+            copiedIndex={copiedIndex}
+            onCopy={handleCopy}
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProductDemo;
