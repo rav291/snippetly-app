@@ -88,7 +88,7 @@ const ProductDemo = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-24 relative max-lg:mb-16 max-md:mb-12"
+          className="text-center mb-12 relative max-lg:mb-16 max-md:mb-12"
         >
           <motion.h2
             className="text-[clamp(3rem,3vw,4.5rem)] font-extrabold bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] mb-6 tracking-[-0.04em] leading-[1.2] relative"

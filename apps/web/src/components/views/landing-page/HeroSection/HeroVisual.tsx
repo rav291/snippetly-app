@@ -12,7 +12,7 @@ const HeroVisual = () => {
     >
       <div className="relative w-full max-w-[500px]">
         {/* Card 1 - Input */}
-        <div className="bg-[rgba(15,15,20,0.8)] border border-white/10 rounded-3xl p-8 backdrop-blur-[20px] relative -rotate-2 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+        <div className="bg-[rgba(15,15,20,0.8)] border border-white/10 rounded-3xl px-8 py-4 backdrop-blur-[20px] relative -rotate-2 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
           <div className="text-xs font-bold uppercase tracking-[0.1em] text-gray-400 mb-6">
             Your content
           </div>

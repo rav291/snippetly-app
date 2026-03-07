@@ -16,7 +16,7 @@ const HeroCTA = () => {
     >
       <button
         onClick={handleGenerate}
-        className="btn-glow px-10 py-6 bg-emerald-500 text-black border-none rounded-2xl text-lg font-bold inline-flex items-center justify-center gap-3 w-fit cursor-pointer shadow-[0_0_60px_rgba(16,185,129,0.5)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-[3px] hover:scale-[1.02] hover:shadow-[0_0_80px_rgba(16,185,129,0.7)] max-md:w-full"
+        className="btn-glow px-4 py-2 bg-emerald-500 text-black border-none rounded-lg text-md font-bold inline-flex items-center justify-center gap-3 w-fit cursor-pointer shadow-[0_0_60px_rgba(16,185,129,0.5)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-[3px] hover:scale-[1.02] hover:shadow-[0_0_80px_rgba(16,185,129,0.7)] max-md:w-full"
       >
         <span className="text-white">Start free, no card required</span>
         <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
