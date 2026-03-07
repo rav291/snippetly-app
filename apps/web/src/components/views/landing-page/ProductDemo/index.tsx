@@ -130,7 +130,7 @@ const ProductDemo = () => {
               { text: "Finalizing your tweets..." },
             ]}
             loading={isLoading}
-            onComplete={handleLoaderComplete}
+            // onComplete={handleLoaderComplete}
           />
 
           <TweetCarousel

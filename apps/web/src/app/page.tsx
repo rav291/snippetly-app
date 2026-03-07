@@ -65,7 +65,7 @@ const page = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#020408]">
+    <div className="relative min-h-screen bg-[#030108]">
       <FloatingNavbar navItems={navItems} />
       <div id="hero">
         <HeroSection />
