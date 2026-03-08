@@ -75,7 +75,7 @@ const ProductDemo = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-16 px-8 bg-cover bg-center backdrop-blur-[10px] backdrop-brightness-[0.7] max-lg:py-12 max-lg:px-6 max-md:py-8 max-md:px-4 max-sm:py-6 max-sm:px-3" style={{ backgroundImage: "url('/banners/bg-gradient-1.jpg')" }}>
+    <section className="relative overflow-hidden py-8 px-8 bg-cover bg-center backdrop-blur-[10px] backdrop-brightness-[0.7] max-lg:py-12 max-lg:px-6 max-md:py-8 max-md:px-4 max-sm:py-6 max-sm:px-3" style={{ backgroundImage: "url('/banners/bg-gradient-1.jpg')" }}>
       {/* 3D cube background layers */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-[1]" style={{ background: "radial-gradient(circle 150px at 15% 25%, rgba(16,185,129,0.03) 0%, transparent 50%), radial-gradient(circle 200px at 85% 75%, rgba(52,211,153,0.02) 0%, transparent 50%)", animation: "layerFloat1 15s ease-in-out infinite" }} />
       <div className="absolute inset-0 w-full h-full pointer-events-none z-[1]" style={{ background: "radial-gradient(circle 100px at 70% 30%, rgba(34,197,94,0.04) 0%, transparent 50%), radial-gradient(circle 180px at 30% 80%, rgba(5,150,105,0.03) 0%, transparent 50%)", animation: "layerFloat2 18s ease-in-out infinite reverse" }} />
@@ -91,7 +91,7 @@ const ProductDemo = () => {
           className="text-center mb-12 relative max-lg:mb-16 max-md:mb-12"
         >
           <motion.h2
-            className="text-[clamp(3rem,3vw,4.5rem)] font-extrabold bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] mb-6 tracking-[-0.04em] leading-[1.2] relative"
+            className="text-[clamp(3.5rem,3vw,4.5rem)] font-extrabold bg-gradient-to-r from-white via-gray-200 to-white [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] mb-2 tracking-[-0.03em] leading-[1.2] relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -100,7 +100,7 @@ const ProductDemo = () => {
             Experience the Change
           </motion.h2>
           <motion.p
-            className="text-[clamp(1.125rem,1vw,1.5rem)] font-normal leading-[1.6] max-w-[600px] mx-auto mt-8"
+            className="text-[clamp(1.125rem,1vw,1.5rem)] font-normal leading-[1.6] max-w-[600px] mx-auto"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -111,7 +111,7 @@ const ProductDemo = () => {
         </motion.div>
 
         {/* Single column layout */}
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-2">
           <DemoInput
             inputText={inputText}
             setInputText={setInputText}

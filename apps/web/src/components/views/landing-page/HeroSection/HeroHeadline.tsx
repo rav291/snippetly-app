@@ -20,7 +20,7 @@ const HeroHeadline = () => {
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-[clamp(2.5rem,6vw,4.2rem)] font-black leading-[1.2] tracking-[-0.03em] text-white m-0"
+        className="text-[clamp(2rem,5vw,3.4rem)] font-black leading-[1.1] tracking-[-0.04em] text-white m-0"
       >
         Turn your{" "}
         <span className="word-cycle">

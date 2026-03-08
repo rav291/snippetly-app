@@ -578,40 +578,36 @@
   .word-cycle .word-active {
     opacity: 1;
     transform: translateY(0);
+    margin-top: 5px;
   }
 
-  /* Hero section background */
+  /* Hero section background — matching the provided aesthetic */
   .hero-bg::before {
-    content: "";
+    /* content: "";
     position: absolute;
-    inset: 0;
-    /* background-image: url("/banners/aleksandr-popov-tRFehFzhlcc-unsplash.jpg"); */
-    background-size: cover;
-    background-position: center;
-    filter: blur(20px) brightness(0.6);
-    z-index: 0;
+    inset: -20%;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(255, 170, 80, 0.45) 0%, transparent 60%),
+      radial-gradient(circle at 90% 10%, rgba(80, 160, 255, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(120, 60, 255, 0.3) 0%, transparent 70%),
+      radial-gradient(circle at 80% 80%, rgba(200, 80, 255, 0.2) 0%, transparent 50%), #05070a;
+    filter: blur(120px) saturate(1.8);
+    z-index: -1;
+    animation: gradientShift 40s linear infinite alternate; */
   }
 
-  /* Section scanline overlay 
+  /* Section scanline overlay */
   .scanline-overlay::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.01) 2px,
-        rgba(255, 255, 255, 0.01) 4px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.01) 2px,
-        rgba(255, 255, 255, 0.01) 4px
-      );
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    );
     pointer-events: none;
     z-index: 1;
   }
@@ -723,7 +719,7 @@
     display: none;
   }
 
-  /* Tweet card top line on hover */
+  /* Tweet card top line on hover
   .card-topline::before {
     content: "";
     position: absolute;
@@ -737,7 +733,7 @@
   }
   .card-topline:hover::before {
     opacity: 1;
-  }
+  } */
 
   /* Workflow card top line */
   .wf-card-topline::before {

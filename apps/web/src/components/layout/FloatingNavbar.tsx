@@ -34,9 +34,9 @@ export const FloatingNavbar = ({
       <motion.nav
         layout
         initial={{
-          maxWidth: "880px",
+          maxWidth: "1240px",
           width: "95%",
-          height: "54px",
+          height: "42px",
           borderRadius: "24px",
           paddingLeft: "24px",
           paddingRight: "24px",
@@ -45,9 +45,9 @@ export const FloatingNavbar = ({
           backgroundColor: "rgba(2, 4, 8, 0)",
         }}
         animate={{
-          maxWidth: isScrolled ? "500px" : "880px",
+          maxWidth: isScrolled ? "500px" : "1240px",
           width: "95%",
-          height: "54px",
+          height: "48px",
           borderRadius: isScrolled ? "100px" : "24px",
           paddingLeft: "24px",
           paddingRight: "24px",
@@ -106,7 +106,7 @@ export const FloatingNavbar = ({
             ))}
           </div>
 
-          <AnimatePresence>
+          {/* <AnimatePresence>
             {!isScrolled && (
               <motion.div
                 layout
@@ -121,7 +121,7 @@ export const FloatingNavbar = ({
                 </button>
               </motion.div>
             )}
-          </AnimatePresence>
+          </AnimatePresence> */}
         </div>
       </motion.nav>
     </div>
